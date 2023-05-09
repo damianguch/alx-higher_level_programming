@@ -19,7 +19,7 @@ int check_cycle(listint_t *list)
 	{
 		if (f->next != NULL && f->next->next != NULL)
 		{
-			fast = fast->next->next;
+			f = f->next->next;
 			s = s->next;
 
 			if (f == s)
