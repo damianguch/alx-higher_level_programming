@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-for n in range(0, 10):
-    for m in range((n + 1), 10):
-        if (n is not 8) or (m is not 9):
-            print("{}{}, ".format(n, m), end="")
+for j in range(0, 9):
+    for k in range(i + 1, 10):
+        if j == 8 and k == 9:
+            print("{:d}{:d}".format(j, k))
         else:
-            print("{}{}".format(n, m))
+            print("{:d}{:d}".format(j, k), end=", ")
