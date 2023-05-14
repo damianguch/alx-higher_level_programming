@@ -56,7 +56,7 @@ int is_palindrome(listint_t **head)
 		return (0);
 
 	current = current->next->next;
-	reverse = reverse_listint(&current);
+	reverse = reverse_list(&current);
 	middle = reverse;
 
 	current = *head;
