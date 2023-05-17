@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
     if a_dictionary is not None:
-        max_key = max(a_dictionary, key=a_dictionary.get)
+        max_key = max(zip(a_dictionary.values(), a_dictionary.keys()))[1]
         return max_key
 
     return None
