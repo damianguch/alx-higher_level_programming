@@ -8,5 +8,5 @@ def weight_average(my_list=[]):
             total += (score * weight)
             freq += weight
         return (total/freq) if freq > 0 else 0
-    
+
     return (0)
