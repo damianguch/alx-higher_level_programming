@@ -5,3 +5,4 @@ def square_matrix_simple(matrix=[]):
         for i in _:
             print(i ** 2, end="")
         print()
+    return matrix_cpy
