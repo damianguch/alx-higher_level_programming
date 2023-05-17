@@ -4,5 +4,5 @@ def update_dictionary(a_dictionary, key, value):
         d = {key: value}
         a_dictionary.update(d)
         return(a_dictionary)
-       
+
     return None
