@@ -66,3 +66,8 @@ performance_schema
 sys
 $
 ```
+
+# How To Import sql file into a database
+```
+mysqlimport -u username -p database_name < path/table_name.sql
+```
