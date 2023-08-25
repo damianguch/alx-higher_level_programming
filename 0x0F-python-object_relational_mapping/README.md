@@ -9,6 +9,16 @@
 - What ORM means
 - How to map a Python Class to a MySQL table
 
+## Install and activate venv
+
+To create a Python Virtual Environment, allowing the installation specific
+dependencies for this python project, we installed venv:
+```
+$ sudo apt-get install python3.8-venv
+$ python3 -m venv venv
+$ source venv/bin/activate
+```
+
 ## Install MySQLdb module version 2.0.x
 
 For installing MySQLdb, you need to have MySQL installed
