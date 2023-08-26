@@ -1,12 +1,12 @@
 #!/usr/bin/python3
 """
-use table relationship to access and print city and state
+return all cities from database via python
 parameters given to script: username, password, database
 """
 
 from sys import argv
-from relationship_state import Base, State
-from relationship_city import City
+from model_state import Base, State
+from model_city import City
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -23,9 +23,9 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # use table relationship to access and print city and state
-    rows = session.query(City).order_by(City.id).all()
-    for city in rows:
-        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
+    # query multiple tables in database and print info from tables
+    for q in session.query(State.name, City.id, City.name).filter(
+            State.id == City.state_id).order_by(City.id):
+        print("{:s}: ({:d}) {:s}".format(q[0], q[1], q[2]))
 
     session.close()

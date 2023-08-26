@@ -24,8 +24,10 @@ if __name__ == "__main__":
     session = Session()
 
     # use table relationship to access and print city and state
-    rows = session.query(City).order_by(City.id).all()
-    for city in rows:
-        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
+    rows = session.query(State).order_by(State.id).all()
+    for state in rows:
+        print("{}: {}".format(state.id, state.name))
+        for city in state.cities:
+            print("    {}: {}".format(city.id, city.name))
 
     session.close()

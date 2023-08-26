@@ -1,12 +1,11 @@
 #!/usr/bin/python3
 """
-use table relationship to access and print city and state
+delete from table states with names containing letter 'a'
 parameters given to script: username, password, database
 """
 
 from sys import argv
-from relationship_state import Base, State
-from relationship_city import City
+from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
@@ -23,9 +22,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # use table relationship to access and print city and state
-    rows = session.query(City).order_by(City.id).all()
-    for city in rows:
-        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
+    # find all appropriate states to be deleted
+    states = session.query(State).filter(State.name.like('%a%')).all()
+    for s in states:
+        session.delete(s)
 
+    session.commit()
     session.close()

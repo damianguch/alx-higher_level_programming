@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-use table relationship to access and print city and state
+create state "California" with city attribute "San Francisco"
 parameters given to script: username, password, database
 """
 
@@ -23,9 +23,13 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    # use table relationship to access and print city and state
-    rows = session.query(City).order_by(City.id).all()
-    for city in rows:
-        print("{}: {} -> {}".format(city.id, city.name, city.state.name))
+    # create state "California" with city attribute "San Francisco"
+    new_s = State(name="California")
+    new_c = City(name="San Francisco")
+    new_s.cities.append(new_c)
 
+    session.add(new_s)
+    session.add(new_c)
+
+    session.commit()
     session.close()
