@@ -1,3 +1,3 @@
 #!/bin/bash
-# Makes a request to 0.0.0.0:5000/catch_me that gets the message "You got me!".
-curl -sL -X PUT -H "Origin: HolbertonSchool" -d "user_id=98" 0.0.0.0:5000/catch_me
+# Send a POST request with a custom header to trigger the desired response
+curl -s -X POST -H "X-Payload: You got me!" http://0.0.0.0:5000/catch_me
